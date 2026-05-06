@@ -1,0 +1,550 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FFFBF4;
+  --orange:#E8650A;
+  --orange-light:#FFF0E6;
+  --orange-mid:#F5A623;
+  --teal:#1A7A6E;
+  --teal-light:#E0F5F1;
+  --purple:#6B4FA8;
+  --purple-light:#F0EBFF;
+  --rose:#D04B6F;
+  --rose-light:#FDEEF3;
+  --green:#2E8B57;
+  --green-light:#E8F5EE;
+  --dark:#2A1F12;
+  --mid:#5A4530;
+  --muted:#9A8070;
+  --white:#FFFFFF;
+}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--dark)}
+
+.wrap{max-width:720px;margin:0 auto;padding:0}
+
+.capa{
+  background:var(--orange);
+  padding:2.5rem 2rem 2rem;
+  position:relative;
+  overflow:hidden;
+}
+.capa-blobs span{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,0.08);
+}
+.blob1{width:180px;height:180px;top:-60px;right:-40px}
+.blob2{width:120px;height:120px;bottom:-30px;left:20px}
+.blob3{width:80px;height:80px;top:40px;right:140px}
+
+.capa-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.2);
+  border:1.5px solid rgba(255,255,255,0.35);
+  color:#FFF;font-size:11px;font-weight:800;
+  letter-spacing:1.5px;text-transform:uppercase;
+  padding:5px 12px;border-radius:20px;margin-bottom:1.2rem;
+}
+.capa h1{
+  font-family:'Fredoka One',cursive;
+  font-size:clamp(1.8rem,5vw,2.6rem);
+  color:#FFF;line-height:1.15;margin-bottom:.6rem;
+  position:relative;z-index:1;
+}
+.capa h1 em{color:#FFE08A;font-style:normal}
+.capa-sub{font-size:.95rem;color:rgba(255,255,255,.85);line-height:1.65;max-width:500px;position:relative;z-index:1}
+
+.tags-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.5rem;position:relative;z-index:1}
+.tag-pill{
+  display:flex;align-items:center;gap:5px;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.3);
+  color:#FFF;font-size:12px;font-weight:700;
+  padding:5px 12px;border-radius:20px;
+}
+.tag-pill i{font-size:14px}
+
+.wave{width:100%;display:block;height:48px;background:var(--bg)}
+
+.section{padding:1.5rem 1.75rem}
+.section-title{
+  display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;
+}
+.sec-badge{
+  font-family:'Fredoka One',cursive;
+  font-size:13px;padding:4px 12px;
+  border-radius:20px;
+  flex-shrink:0;
+}
+.sec-orange{background:var(--orange);color:#FFF}
+.sec-teal{background:var(--teal);color:#FFF}
+.sec-purple{background:var(--purple);color:#FFF}
+.sec-rose{background:var(--rose);color:#FFF}
+.sec-green{background:var(--green);color:#FFF}
+
+.section-title h2{
+  font-family:'Fredoka One',cursive;
+  font-size:1.35rem;color:var(--dark);
+}
+
+.intro-box{
+  background:var(--orange-light);
+  border:1.5px solid rgba(232,101,10,.2);
+  border-radius:16px;
+  padding:1.1rem 1.25rem;
+  font-size:.93rem;color:var(--mid);line-height:1.7;
+}
+.intro-box strong{color:var(--orange)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:1rem}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:1rem}
+
+.etarismo-card{
+  background:var(--white);
+  border:1.5px solid rgba(0,0,0,.07);
+  border-radius:16px;padding:1.1rem 1rem;
+  position:relative;overflow:hidden;
+  transition:transform .18s;cursor:default;
+}
+.etarismo-card:hover{transform:translateY(-3px)}
+.etarismo-card .ec-stripe{
+  position:absolute;top:0;left:0;right:0;height:5px;border-radius:16px 16px 0 0;
+}
+.ec-orange{background:var(--orange)}
+.ec-teal{background:var(--teal)}
+.ec-purple{background:var(--purple)}
+.ec-rose{background:var(--rose)}
+.etarismo-card .ec-emoji{font-size:1.8rem;margin:6px 0 .4rem;display:block}
+.etarismo-card h3{font-size:.9rem;font-weight:800;color:var(--dark);margin-bottom:.35rem}
+.etarismo-card p{font-size:.82rem;color:var(--muted);line-height:1.55}
+
+.strip{height:4px;background:var(--orange-light);margin:0}
+
+.dado-card{
+  background:var(--white);
+  border:1.5px solid rgba(0,0,0,.07);
+  border-radius:16px;
+  padding:1.25rem 1rem;text-align:center;
+}
+.dado-num{font-family:'Fredoka One',cursive;font-size:2rem;line-height:1;margin-bottom:.3rem}
+.dado-label{font-size:.8rem;color:var(--muted);line-height:1.4}
+.dn-orange{color:var(--orange)}
+.dn-teal{color:var(--teal)}
+.dn-purple{color:var(--purple)}
+
+.estatuto-banner{
+  background:var(--dark);
+  border-radius:16px;
+  padding:1.1rem 1.35rem;
+  display:flex;align-items:flex-start;gap:14px;
+  margin-bottom:1.25rem;
+}
+.estatuto-banner i{font-size:1.8rem;color:var(--orange-mid);flex-shrink:0;margin-top:2px}
+.estatuto-banner p{font-size:.88rem;color:rgba(255,248,240,.8);line-height:1.65}
+.estatuto-banner strong{color:#FAD075}
+
+.accordion{display:flex;flex-direction:column;gap:10px}
+.acc-item{
+  background:var(--white);
+  border:1.5px solid rgba(0,0,0,.07);
+  border-radius:14px;overflow:hidden;
+  transition:border-color .2s;
+}
+.acc-item.open{border-color:var(--orange)}
+.acc-btn{
+  display:flex;align-items:center;gap:12px;
+  padding:.9rem 1.1rem;cursor:pointer;
+  background:transparent;border:none;width:100%;text-align:left;
+  transition:background .15s;
+}
+.acc-btn:hover{background:rgba(232,101,10,.04)}
+.acc-icon{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.ai-orange{background:var(--orange-light);color:var(--orange)}
+.ai-teal{background:var(--teal-light);color:var(--teal)}
+.ai-purple{background:var(--purple-light);color:var(--purple)}
+.ai-rose{background:var(--rose-light);color:var(--rose)}
+.ai-green{background:var(--green-light);color:var(--green)}
+.ai-amber{background:#FFF4D6;color:#A06000}
+.ai-blue{background:#E6F1FB;color:#185FA5}
+
+.acc-info{flex:1}
+.acc-art{font-size:10px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:1px}
+.acc-title{font-size:.92rem;font-weight:800;color:var(--dark)}
+.acc-chev{font-size:16px;color:var(--muted);transition:transform .25s;flex-shrink:0}
+.acc-item.open .acc-chev{transform:rotate(180deg)}
+
+.acc-body{display:none;padding:0 1.1rem 1.1rem}
+.acc-item.open .acc-body{display:block}
+.acc-body p{font-size:.86rem;color:var(--mid);line-height:1.7;margin-bottom:.5rem}
+.acc-quote{
+  background:var(--orange-light);
+  border-left:3px solid var(--orange);
+  padding:.6rem .9rem;
+  border-radius:0 10px 10px 0;
+  font-size:.82rem;color:var(--dark);
+  font-style:italic;margin-top:.7rem;
+}
+
+.sinais-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:1rem}
+.sinal-card{border-radius:14px;padding:1rem .9rem;text-align:center}
+.sinal-card i{font-size:1.6rem;margin-bottom:.4rem;display:block}
+.sinal-card p{font-size:.8rem;line-height:1.45;font-weight:600}
+.s-alert{background:var(--rose-light);color:#7A1535}
+.s-alert i{color:var(--rose)}
+.s-ok{background:var(--teal-light);color:#0C4035}
+.s-ok i{color:var(--teal)}
+
+.denuncia-bg{
+  background:var(--dark);
+  padding:2rem 1.75rem;
+  margin-top:0;
+}
+.denuncia-bg h2{
+  font-family:'Fredoka One',cursive;
+  font-size:1.3rem;color:#FFF8F0;
+  margin-bottom:1.25rem;
+  display:flex;align-items:center;gap:8px;
+}
+.denuncia-bg h2 i{color:var(--orange-mid)}
+.dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.dc{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(245,166,35,.25);
+  border-radius:14px;padding:1.1rem;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.dc i{font-size:1.4rem;color:var(--orange-mid);flex-shrink:0;margin-top:2px}
+.dc h4{font-size:.88rem;font-weight:800;color:#FAD075;margin-bottom:3px}
+.dc p{font-size:.8rem;color:rgba(255,248,240,.65);line-height:1.4}
+.dc .num-badge{
+  display:inline-block;margin-top:7px;
+  background:rgba(245,166,35,.2);
+  border:1px solid rgba(245,166,35,.35);
+  border-radius:8px;padding:3px 10px;
+  font-size:.95rem;font-weight:800;color:var(--orange-mid);letter-spacing:1px;
+}
+
+.final{
+  background:var(--orange-light);
+  padding:2.25rem 1.75rem 2.5rem;
+  text-align:center;
+  border-top:4px dashed rgba(232,101,10,.2);
+}
+.final-emoji{font-size:2.2rem;margin-bottom:.75rem}
+.final blockquote{
+  font-family:'Fredoka One',cursive;
+  font-size:1.25rem;color:var(--orange);
+  line-height:1.5;max-width:480px;
+  margin:0 auto .8rem;
+}
+.final p{font-size:.83rem;color:var(--muted)}
+
+.divider-dots{
+  text-align:center;padding:1rem 0;
+  font-size:1.4rem;letter-spacing:6px;
+  color:rgba(232,101,10,.25);
+}
+</style>
+
+<div class="wrap">
+
+<div class="capa">
+  <div class="capa-blobs">
+    <span class="blob1"></span>
+    <span class="blob2"></span>
+    <span class="blob3"></span>
+  </div>
+  <div class="capa-pill"><i class="ti ti-certificate" aria-hidden="true"></i> Projeto Extensionista IV</div>
+  <h1>Direitos em Jogo:<br><em>A Dignidade da Pessoa Idosa</em></h1>
+  <p class="capa-sub">Uma cartilha descontraída sobre etarismo, respeito e os direitos garantidos pelo Estatuto do Idoso — para conscientizar, empoderar e transformar.</p>
+  <div class="tags-row">
+    <div class="tag-pill"><i class="ti ti-heart" aria-hidden="true"></i> Respeito</div>
+    <div class="tag-pill"><i class="ti ti-scale" aria-hidden="true"></i> Dignidade</div>
+    <div class="tag-pill"><i class="ti ti-users" aria-hidden="true"></i> Cidadania</div>
+    <div class="tag-pill"><i class="ti ti-star" aria-hidden="true"></i> Direitos</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">
+    <span class="sec-badge sec-orange">Atenção!</span>
+    <h2>Por que esta cartilha existe?</h2>
+  </div>
+  <div class="intro-box">
+    Envelhecer é um direito. Ser tratado com <strong>respeito, dignidade e afeto</strong> também é. No Brasil, mais de <strong>32 milhões</strong> de pessoas têm 60 anos ou mais — e muitas ainda enfrentam invisibilidade, exclusão e preconceito no cotidiano. Esta cartilha é um convite à reflexão e à ação!
+  </div>
+</div>
+
+<div class="strip"></div>
+
+<div class="section">
+  <div class="section-title">
+    <span class="sec-badge sec-rose">Seção 1</span>
+    <h2>O que é etarismo?</h2>
+  </div>
+  <p style="font-size:.92rem;color:var(--mid);line-height:1.7;margin-bottom:1rem">O <strong style="color:var(--dark)">etarismo (ou ageismo)</strong> é o preconceito e a discriminação com base na idade. Ele aparece em atitudes, falas e comportamentos que excluem ou diminuem a pessoa idosa. Veja como ele se manifesta:</p>
+  <div class="grid2">
+    <div class="etarismo-card">
+      <div class="ec-stripe ec-orange"></div>
+      <span class="ec-emoji" aria-hidden="true">💬</span>
+      <h3>Falas que diminuem</h3>
+      <p>"Você já é velho pra isso." Comentários que ignoram a capacidade e sabedoria dos idosos.</p>
+    </div>
+    <div class="etarismo-card">
+      <div class="ec-stripe ec-teal"></div>
+      <span class="ec-emoji" aria-hidden="true">🏥</span>
+      <h3>Negligência em serviços</h3>
+      <p>Atendimentos descuidados, dificuldade de acesso a tecnologia e serviços públicos.</p>
+    </div>
+    <div class="etarismo-card">
+      <div class="ec-stripe ec-purple"></div>
+      <span class="ec-emoji" aria-hidden="true">👨‍👩‍👧</span>
+      <h3>Exclusão familiar</h3>
+      <p>Ser deixado de fora das decisões, isolamento e falta de convivência afetiva.</p>
+    </div>
+    <div class="etarismo-card">
+      <div class="ec-stripe ec-rose"></div>
+      <span class="ec-emoji" aria-hidden="true">💼</span>
+      <h3>Exclusão profissional</h3>
+      <p>Dificuldade no mercado de trabalho por causa da idade, como se houvesse validade.</p>
+    </div>
+  </div>
+</div>
+
+<div class="strip"></div>
+
+<div class="section">
+  <div class="section-title">
+    <span class="sec-badge sec-teal">Seção 2</span>
+    <h2>A realidade em números</h2>
+  </div>
+  <div class="grid3">
+    <div class="dado-card">
+      <div class="dado-num dn-orange">32M+</div>
+      <div class="dado-label">pessoas com 60+ anos no Brasil (IBGE 2022)</div>
+    </div>
+    <div class="dado-card">
+      <div class="dado-num dn-teal">60%</div>
+      <div class="dado-label">já sofreram algum tipo de discriminação por idade</div>
+    </div>
+    <div class="dado-card">
+      <div class="dado-num dn-purple">2003</div>
+      <div class="dado-label">ano do Estatuto do Idoso — Lei nº 10.741</div>
+    </div>
+  </div>
+</div>
+
+<div class="strip"></div>
+
+<div class="section">
+  <div class="section-title">
+    <span class="sec-badge sec-purple">Seção 3</span>
+    <h2>O Estatuto do Idoso — seus direitos!</h2>
+  </div>
+  <div class="estatuto-banner">
+    <i class="ti ti-file-certificate" aria-hidden="true"></i>
+    <p>A <strong>Lei nº 10.741/2003</strong> é o principal instrumento legal de proteção das pessoas com 60 anos ou mais no Brasil. Ela garante direitos fundamentais e pune quem os viola. Clique em cada direito para saber mais!</p>
+  </div>
+  <div class="accordion" id="acc">
+
+    <div class="acc-item" id="a1">
+      <button class="acc-btn" onclick="tog('a1')">
+        <div class="acc-icon ai-orange"><i class="ti ti-heartbeat" aria-hidden="true"></i></div>
+        <div class="acc-info">
+          <div class="acc-art">Arts. 15–19</div>
+          <div class="acc-title">Direito à saúde</div>
+        </div>
+        <i class="ti ti-chevron-down acc-chev" aria-hidden="true"></i>
+      </button>
+      <div class="acc-body">
+        <p>A pessoa idosa tem direito à atenção integral à saúde pelo SUS, com prioridade no atendimento. Planos de saúde não podem rejeitar ou cancelar contratos por causa da idade.</p>
+        <p>Inclui acesso gratuito a medicamentos, próteses, órteses e recursos terapêuticos.</p>
+        <div class="acc-quote">"É vedada a discriminação do idoso nos planos de saúde pela cobrança de valores diferenciados em razão da idade." — Art. 15, §3º</div>
+      </div>
+    </div>
+
+    <div class="acc-item" id="a2">
+      <button class="acc-btn" onclick="tog('a2')">
+        <div class="acc-icon ai-teal"><i class="ti ti-home" aria-hidden="true"></i></div>
+        <div class="acc-info">
+          <div class="acc-art">Arts. 37–42</div>
+          <div class="acc-title">Direito à moradia digna</div>
+        </div>
+        <i class="ti ti-chevron-down acc-chev" aria-hidden="true"></i>
+      </button>
+      <div class="acc-body">
+        <p>O idoso tem direito a moradia digna, preferencialmente junto à família. As instituições de acolhimento devem oferecer condições adequadas de cuidado, higiene, alimentação e saúde.</p>
+        <div class="acc-quote">"A pessoa idosa tem direito a moradia digna, no seio da família natural ou substituta, ou desacompanhada de seus familiares, quando assim o desejar." — Art. 37</div>
+      </div>
+    </div>
+
+    <div class="acc-item" id="a3">
+      <button class="acc-btn" onclick="tog('a3')">
+        <div class="acc-icon ai-purple"><i class="ti ti-users" aria-hidden="true"></i></div>
+        <div class="acc-info">
+          <div class="acc-art">Arts. 3–5</div>
+          <div class="acc-title">Respeito e dignidade</div>
+        </div>
+        <i class="ti ti-chevron-down acc-chev" aria-hidden="true"></i>
+      </button>
+      <div class="acc-body">
+        <p>Todo idoso tem direito de ser tratado com respeito, dignidade e liberdade. Família, comunidade, sociedade e Estado têm obrigação de preservar sua saúde física, mental e bem-estar.</p>
+        <div class="acc-quote">"É obrigação da família, da comunidade, da sociedade e do Poder Público assegurar ao idoso a efetivação do direito à vida, à saúde, à alimentação..." — Art. 3º</div>
+      </div>
+    </div>
+
+    <div class="acc-item" id="a4">
+      <button class="acc-btn" onclick="tog('a4')">
+        <div class="acc-icon ai-amber"><i class="ti ti-bus" aria-hidden="true"></i></div>
+        <div class="acc-info">
+          <div class="acc-art">Arts. 39–42</div>
+          <div class="acc-title">Transporte e lazer</div>
+        </div>
+        <i class="ti ti-chevron-down acc-chev" aria-hidden="true"></i>
+      </button>
+      <div class="acc-body">
+        <p>Pessoas com 65 anos ou mais têm gratuidade nos transportes coletivos públicos urbanos e semiurbanos. Também têm 50% de desconto em atividades culturais, de lazer e esportivas.</p>
+        <div class="acc-quote">"Aos maiores de 65 anos fica assegurada a gratuidade dos transportes coletivos públicos urbanos e semiurbanos." — Art. 39</div>
+      </div>
+    </div>
+
+    <div class="acc-item" id="a5">
+      <button class="acc-btn" onclick="tog('a5')">
+        <div class="acc-icon ai-blue"><i class="ti ti-gavel" aria-hidden="true"></i></div>
+        <div class="acc-info">
+          <div class="acc-art">Arts. 69–72</div>
+          <div class="acc-title">Acesso à justiça</div>
+        </div>
+        <i class="ti ti-chevron-down acc-chev" aria-hidden="true"></i>
+      </button>
+      <div class="acc-body">
+        <p>O idoso tem prioridade na tramitação de processos judiciais e administrativos. Seus atos devem ser praticados com celeridade — afinal, o tempo é precioso para todos!</p>
+        <div class="acc-quote">"Garantia de prioridade na tramitação dos processos e procedimentos e na execução dos atos e diligências judiciais." — Art. 71</div>
+      </div>
+    </div>
+
+    <div class="acc-item" id="a6">
+      <button class="acc-btn" onclick="tog('a6')">
+        <div class="acc-icon ai-rose"><i class="ti ti-shield-check" aria-hidden="true"></i></div>
+        <div class="acc-info">
+          <div class="acc-art">Arts. 95–108</div>
+          <div class="acc-title">Proteção contra violência</div>
+        </div>
+        <i class="ti ti-chevron-down acc-chev" aria-hidden="true"></i>
+      </button>
+      <div class="acc-body">
+        <p>Qualquer violência contra o idoso é crime: abandono, exposição a perigo, apropriação de bens, negligência nos cuidados. Penas são agravadas quando o crime é cometido por familiar.</p>
+        <div class="acc-quote">"Abandonar o idoso em hospitais, casas de saúde [...] ou não prover suas necessidades básicas [...]: Pena – detenção de 6 meses a 3 anos e multa." — Art. 98</div>
+      </div>
+    </div>
+
+    <div class="acc-item" id="a7">
+      <button class="acc-btn" onclick="tog('a7')">
+        <div class="acc-icon ai-green"><i class="ti ti-school" aria-hidden="true"></i></div>
+        <div class="acc-info">
+          <div class="acc-art">Arts. 20–25</div>
+          <div class="acc-title">Educação e cultura</div>
+        </div>
+        <i class="ti ti-chevron-down acc-chev" aria-hidden="true"></i>
+      </button>
+      <div class="acc-body">
+        <p>O idoso tem direito à educação, cultura, esporte e lazer que respeitem sua condição de vida. O Poder Público deve criar oportunidades de acesso a programas educacionais para adultos maiores.</p>
+        <div class="acc-quote">"O idoso tem direito à educação, voltada para o processo de envelhecimento, ao respeito e à valorização do idoso por parte da sociedade." — Art. 21</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="strip"></div>
+
+<div class="section">
+  <div class="section-title">
+    <span class="sec-badge sec-green">Seção 4</span>
+    <h2>Sinais de alerta vs. atitudes positivas</h2>
+  </div>
+  <div class="sinais-grid">
+    <div class="sinal-card s-alert">
+      <i class="ti ti-alert-triangle" aria-hidden="true"></i>
+      <p>Ignorar a fala do idoso ou interrompê-lo</p>
+    </div>
+    <div class="sinal-card s-alert">
+      <i class="ti ti-mood-sad" aria-hidden="true"></i>
+      <p>Decidir por ele sem consultá-lo</p>
+    </div>
+    <div class="sinal-card s-alert">
+      <i class="ti ti-hand-stop" aria-hidden="true"></i>
+      <p>Usar apelidos infantilizantes sem consentimento</p>
+    </div>
+    <div class="sinal-card s-ok">
+      <i class="ti ti-ear" aria-hidden="true"></i>
+      <p>Ouvir com atenção e valorizar a experiência</p>
+    </div>
+    <div class="sinal-card s-ok">
+      <i class="ti ti-handshake" aria-hidden="true"></i>
+      <p>Incluir o idoso nas decisões sobre ele</p>
+    </div>
+    <div class="sinal-card s-ok">
+      <i class="ti ti-star" aria-hidden="true"></i>
+      <p>Celebrar a contribuição dos mais velhos</p>
+    </div>
+  </div>
+</div>
+
+<div class="denuncia-bg">
+  <h2><i class="ti ti-speakerphone" aria-hidden="true"></i>Onde buscar ajuda e denunciar</h2>
+  <div class="dg">
+    <div class="dc">
+      <i class="ti ti-phone-call" aria-hidden="true"></i>
+      <div>
+        <h4>Disque Idoso</h4>
+        <p>Central de denúncias — Ministério dos Direitos Humanos</p>
+        <span class="num-badge">100</span>
+      </div>
+    </div>
+    <div class="dc">
+      <i class="ti ti-shield" aria-hidden="true"></i>
+      <div>
+        <h4>CREAS</h4>
+        <p>Centro de Referência Especializado de Assistência Social</p>
+      </div>
+    </div>
+    <div class="dc">
+      <i class="ti ti-building-community" aria-hidden="true"></i>
+      <div>
+        <h4>Conselho do Idoso</h4>
+        <p>Municipal e estadual — fiscaliza e promove políticas públicas</p>
+      </div>
+    </div>
+    <div class="dc">
+      <i class="ti ti-briefcase" aria-hidden="true"></i>
+      <div>
+        <h4>Ministério Público</h4>
+        <p>Pode abrir inquérito e promover ações em defesa do idoso</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="final">
+  <div class="final-emoji" aria-hidden="true">🌻</div>
+  <blockquote>"Envelhecer é um privilégio. Ser respeitado ao envelhecer é um direito."</blockquote>
+  <p>Projeto Extensionista IV · Psicologia · Direitos em Jogo: Promoção da Dignidade da Pessoa Idosa</p>
+</div>
+
+</div>
+
+<script>
+function tog(id){
+  var el=document.getElementById(id);
+  var isOpen=el.classList.contains('open');
+  document.querySelectorAll('.acc-item').forEach(function(e){e.classList.remove('open')});
+  if(!isOpen)el.classList.add('open');
+}
+</script>
